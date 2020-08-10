@@ -15,6 +15,7 @@ allprojects {
 
 	repositories {
 		jcenter()
+		mavenLocal()
   	  	maven{ url "https://hub.spigotmc.org/nexus/content/repositories/snapshots" }
    	 	maven{ url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
@@ -32,7 +33,7 @@ allprojects {
 
 dependencies {
 	
-	compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
+	compileOnly 'org.spigotmc:spigot:1.16.1-R0.1-SNAPSHOT'
 	
 }
 

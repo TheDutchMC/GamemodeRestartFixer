@@ -1,0 +1,9 @@
+#The gamemode which should be set on restart. Possible values:
+# - SURVIVAL
+# - CREATIVE
+# - ADVENTURE
+# - SPECTATOR
+forcedGamemode: "SURVIVAL"
+
+#Enable hardcore. Default: false
+hardcore: "false"
