@@ -1,17 +1,44 @@
-# BaseBukkitPlugin
-For Spigot 1.16
+# GamemodeRestartFixer
+A Spigot plugin for people with hosts that keep breaking stuff.
 
-I use this as a base template for my plugins.
+This plugin can help you if:
+- Your host changes the default gamemode for some reason
+- Your host enables hardcore for some reason
 
-### Comes with: 
-- Main class
-- Configuration Handler
+## IMPORTANT
+This plugin relies on NMS (net.minecraft.server) code which changes EVERY minecraft version!  
+Make sure you download the correct version for your installation!
 
-### Easy testing:
-``gradle testJar`` will put a jar in server/plugins
+## Downloading
+The downloads can be found under [releases](https://github.com/TheDutchMC/GamemodeRestartFixer/releases)
 
-### Releasing: 
-``gradle releaseJar`` will put a jar in releases/
+## Configuration
+The config file can be found at plugins/GamemodeRestartFixer/config.yml
 
-### Configuration for Gradle
-You can configure everything in gradle.properties. Values set here will also be set in plugin.yml
+Default config.yml:
+```
+#The gamemode which should be set on restart. Possible values:
+# - SURVIVAL
+# - CREATIVE
+# - ADVENTURE
+# - SPECTATOR
+forcedGamemode: "SURVIVAL"
+
+#Enable hardcore. Default: false
+hardcore: "false"
+```
+
+## Compilig yourself
+You need to have run BuildTools for 1.16 at least once!
+
+#### Test jar:
+```
+./gradlew testJar
+```
+This will put the jar in ProjectRoot/server/plugins, allowing for rapid testing
+
+#### Release jar
+```
+./gradlew releaseJar
+```
+This will put the jar in ProjectRoot/releeases
