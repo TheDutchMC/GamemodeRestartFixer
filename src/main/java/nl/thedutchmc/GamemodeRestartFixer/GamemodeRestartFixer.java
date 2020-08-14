@@ -5,14 +5,13 @@ import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
-//NMS, changes every version.
-import org.bukkit.craftbukkit.v1_16_R1.CraftWorld;
-
 public class GamemodeRestartFixer extends JavaPlugin {
 	
 	public static boolean wasHardcore = true;
 	
 	public static GamemodeRestartFixer INSTANCE;
+	
+	public static final String NMS_VERSION = Bukkit.getServer().getClass().getPackage().getName().substring(23);
 	
 	@Override
 	public void onEnable() {
@@ -34,9 +33,18 @@ public class GamemodeRestartFixer extends JavaPlugin {
 		//EventListeners
 		Bukkit.getPluginManager().registerEvents(new PlayerRespawnEventListener(), this);
 		
-		//We use NMS to disable hardcore.
+		SetHardcoreForWorld shfw = null;
+		
+		switch(NMS_VERSION) {
+		case "v1.16_R1": shfw = new SetHardcoreForWorld_1_16_R1(); break;
+		case "v1.16_R2": shfw = new SetHardcoreForWorld_1_16_R2(); break;
+		default:
+			logWarn("This version of Minecraft is not supported! You are using " + NMS_VERSION);
+			return;
+		}
+		
 		for(World w : Bukkit.getServer().getWorlds()) {
-			((CraftWorld) w).getHandle().worldDataServer.b.hardcore = false;
+			shfw.setHardcore(w, ConfigurationHandler.hardcore);
 		}		
 	}
 	
@@ -46,10 +54,10 @@ public class GamemodeRestartFixer extends JavaPlugin {
 	}
 	
 	public static void logInfo(String log) {
-		Bukkit.getLogger().info("[" + GamemodeRestartFixer.INSTANCE.getDescription().getName() + "] " + log);	
+		INSTANCE.getLogger().info(log);	
 	}
 	
 	public static void logWarn(String log) {
-		Bukkit.getLogger().warning("[" + GamemodeRestartFixer.INSTANCE.getDescription().getName() + "] " + log);	
+		INSTANCE.getLogger().warning(log);	
 	}
 }

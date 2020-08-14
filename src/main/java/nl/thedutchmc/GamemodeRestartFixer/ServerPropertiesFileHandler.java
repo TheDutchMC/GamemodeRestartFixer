@@ -11,9 +11,7 @@ public class ServerPropertiesFileHandler {
 	public void patch() {
 		
 		File propsFile = new File(GamemodeRestartFixer.INSTANCE.getDataFolder().getParentFile().getParentFile(), "server.properties");
-		
-		System.out.println(propsFile.getAbsolutePath());
-		
+				
 		Properties props = new Properties();
 		
 		if(!propsFile.exists()) return;

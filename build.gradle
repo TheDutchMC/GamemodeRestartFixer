@@ -33,7 +33,11 @@ allprojects {
 
 dependencies {
 	
-	compileOnly 'org.spigotmc:spigot:1.16.1-R0.1-SNAPSHOT'
+	compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
+	
+	compile project(':Project_Common')
+	compile project('Spigot_1_16_R1')
+	compile project('Spigot_1_16_R2')
 	
 }
 

@@ -1,0 +1,5 @@
+apply plugin: 'java'
+dependencies {
+	compile project(':Project_Common')
+	compileOnly 'org.spigotmc:spigot:1.16.2-R0.1-SNAPSHOT'
+}

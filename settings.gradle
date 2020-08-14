@@ -8,3 +8,6 @@
  */
 
 rootProject.name = pluginName
+include 'Project_Common'
+include 'Spigot_1_16_R1'
+include 'Spigot_1_16_R2'
