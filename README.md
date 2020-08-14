@@ -5,10 +5,6 @@ This plugin can help you if:
 - Your host changes the default gamemode for some reason
 - Your host enables hardcore for some reason
 
-## IMPORTANT
-This plugin relies on NMS (net.minecraft.server) code which changes EVERY minecraft version!  
-Make sure you download the correct version for your installation!
-
 ## Downloading
 The downloads can be found under [releases](https://github.com/TheDutchMC/GamemodeRestartFixer/releases)
 
